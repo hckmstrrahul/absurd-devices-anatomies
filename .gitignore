@@ -1,0 +1,15 @@
+web/node_modules/
+dist/
+web/public/assets/
+web/tsconfig.tsbuildinfo
+
+# Keep local notes and deployment state out of the repository.
+README*
+readme*
+.vercel/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+shots/
