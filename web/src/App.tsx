@@ -60,7 +60,7 @@ export function App(){
           </aside>
         </div>
       </main>
-      <footer><time dateTime="2026-10">Oct 2026</time><a href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noreferrer">Built with Anatomy <ArrowUpRight/></a></footer>
+      <footer><div className="footer-meta"><time dateTime="2026-10">Oct 2026</time><span aria-hidden="true">·</span><a href="https://github.com/hckmstrrahul/absurd-devices-anatomies" target="_blank" rel="noreferrer">GitHub <ArrowUpRight/></a></div><a href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noreferrer">Built with Anatomy <ArrowUpRight/></a></footer>
     </div>
   </>;
 }
