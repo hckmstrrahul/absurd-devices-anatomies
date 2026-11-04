@@ -4,5 +4,5 @@
   "installCommand": "npm --prefix web ci",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{"source": "/((?!assets/|favicon[.]svg$|og-image[.]png$).*)", "destination": "/index.html"}]
+  "rewrites": [{"source":"/flora","destination":"/flora/index.html"},{"source":"/flora/","destination":"/flora/index.html"},{"source": "/((?!flora/|assets/|favicon[.]svg$|og-image[.]png$).*)", "destination": "/index.html"}]
 }

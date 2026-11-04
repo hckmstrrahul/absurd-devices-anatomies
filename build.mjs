@@ -1,4 +1,5 @@
 import './scripts/build-model.mjs';
+import './scripts/export-flora-geometry.mjs';
 import {execFileSync} from 'node:child_process';
 import {cpSync,copyFileSync} from 'node:fs';
 execFileSync(process.platform==='win32'?'npm.cmd':'npm',['--prefix','web','run','build'],{stdio:'inherit',cwd:import.meta.dirname});

@@ -32,10 +32,13 @@ export function App(){
     <div className="app-container">
       <header className="app-header">
         <a className="brand" href="/" aria-label="Absurd Devices Anatomies home"><span className="brand-mark" aria-hidden="true">✲</span><span>Absurd Devices Anatomies</span></a>
-        <ButtonGroup size="sm" className="theme-control accent-segments" aria-label="Color theme" disallowEmptySelection selectedKeys={new Set([theme])} onSelectionChange={keys=>setTheme(keys.has('dark')?'dark':'light')}>
-          <ButtonGroupItem id="light" aria-label="Light" iconLeading={Sun}/>
-          <ButtonGroupItem id="dark" aria-label="Dark" iconLeading={Moon01}/>
-        </ButtonGroup>
+        <div className="header-actions">
+          <a className="flora-study-link" href="/flora/">Explore Flora in 3D <ArrowUpRight aria-hidden="true"/></a>
+          <ButtonGroup size="sm" className="theme-control accent-segments" aria-label="Color theme" disallowEmptySelection selectedKeys={new Set([theme])} onSelectionChange={keys=>setTheme(keys.has('dark')?'dark':'light')}>
+            <ButtonGroupItem id="light" aria-label="Light" iconLeading={Sun}/>
+            <ButtonGroupItem id="dark" aria-label="Dark" iconLeading={Moon01}/>
+          </ButtonGroup>
+        </div>
       </header>
       <main id="main" tabIndex={-1}>
         <section className="page-heading" aria-labelledby="page-title"><div><h1 id="page-title">XNOS Flora Interface Unit</h1><p>A pivotal advance in extra-terrestrial biological observation. Real-time data on alien flora’s vital statistics, growth, and genetic changes with sub-nanometer accuracy.</p></div><Badge size="sm" type="modern" color="gray">Interactive model</Badge></section>

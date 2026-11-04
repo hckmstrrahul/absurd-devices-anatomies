@@ -1,0 +1,10 @@
+{"duration":32,"beats":[
+ {"at":0,"title":"Meet the instrument","part":null,"separation":0,"intensity":58,"camera":"hero","mode":"solid","target":"view-hero"},
+ {"at":4,"title":"Receive the field","part":"receiver","separation":1,"intensity":58,"camera":"hero","mode":"solid","target":"part-receiver"},
+ {"at":8,"title":"Translate the signal","part":"processor","separation":1,"intensity":70,"camera":"hero","mode":"solid","target":"part-processor"},
+ {"at":12,"title":"Observe the specimen","part":"display","separation":0.65,"intensity":70,"camera":"front","mode":"solid","target":"part-display"},
+ {"at":16,"title":"Listen to the response","part":"audio","separation":0.8,"intensity":93,"camera":"hero","mode":"solid","target":"part-audio"},
+ {"at":20,"title":"Power the observation","part":"power","separation":1,"intensity":45,"camera":"hero","mode":"solid","target":"part-power"},
+ {"at":24,"title":"Look beneath the surface","part":"chassis","separation":0.25,"intensity":58,"camera":"hero","mode":"section","target":"mode-section"},
+ {"at":28,"title":"One complete instrument","part":null,"separation":0,"intensity":58,"camera":"hero","mode":"solid","target":"reset"}
+]}
