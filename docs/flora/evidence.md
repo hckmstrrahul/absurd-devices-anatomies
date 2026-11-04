@@ -23,7 +23,7 @@ The dimensional check is direct: max minus min across all exported solids is 120
 2. Console: large vitality readout, live field/growth traces, actual front projection, six subsystem controls, five cameras, part leader lines.
 3. Studio: pale ground, olive accent, roughness of at least 0.6 for metal surfaces, fine edges, 3/4 hero camera.
 4. Review: tour beat stills, transitions sampled at 0.2-second steps, original collision/envelope audit and browser interaction checks.
-5. Live page: cursor-led tour, immediate input handover, 25-second idle return, orbit/zoom, H to hide panels, shader warm-up, three quality tiers and reduced-motion defaults.
+5. Live page: user-started cursor-led tour, immediate input handover, orbit/zoom, H to hide panels, shader warm-up, three quality tiers and reduced-motion defaults. The tour stays off on page load and after idle time until the user starts it.
 6. Film: pure `window.__flora.render(t)`, 1600×900 CSS at 1.2 pixel ratio, 60 fps H.264/yuv420p/faststart.
 7. Sound: Am9 at 92 bpm, scan-cycle pulses, beat-linked clicks and field-change air. Two-pass mastering to −14 LUFS, peak capped at −2 dBTP.
 8. Publication: a separate HTML entry under 2 KB, external bundles, a 1200×630 share image and explicit Vercel route rewrites. Deploy to the existing Vercel project when authentication is available.
@@ -48,7 +48,7 @@ Review and recording scripts use Playwright Chromium with Metal on macOS. The li
 ## Verification completed
 
 - Production build passes TypeScript. All 15 existing and new automated tests pass.
-- Browser checks pass for the six selections, isolation, surface modes, five cameras, scan pause, intensity extremes, reset, panel visibility, explicit tour pause and automatic 25-second handover.
+- Browser checks pass for the six selections, isolation, surface modes, five cameras, scan pause, intensity extremes, reset, panel visibility, user-started tour and no automatic restart after 25 seconds idle.
 - No horizontal overflow at 360, 390, 768, 1024 or 1600 pixels; reduced motion starts with tour and scan paused.
 - Hardware render verified on ANGLE Metal / Apple M5 Max integrated graphics. Software rendering was also exercised during the initial review.
 - All eight tour beats and all seven transitions inspected, with each transition sampled at 0.2-second increments. The encoded-film contact sheet was inspected too.

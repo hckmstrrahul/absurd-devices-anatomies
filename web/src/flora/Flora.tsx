@@ -25,20 +25,20 @@ export function Flora(){
  const reduced=useRef(matchMedia('(prefers-reduced-motion: reduce)').matches);
  const [controls,setControls]=useState<Controls>({...defaults});const controlsRef=useRef(controls);
  const [sample,setSample]=useState(()=>sampleAt(0,58));const sampleRef=useRef(sample);
- const [tour,setTour]=useState(!reduced.current&&!capture);const tourRef=useRef(tour);
+ const [tour,setTour]=useState(false);const tourRef=useRef(tour);
  const [playing,setPlaying]=useState(!reduced.current);const playingRef=useRef(playing);
  const [ready,setReady]=useState(false);const [error,setError]=useState('');const [quality,setQuality]=useState('High');
  const [beatIndex,setBeatIndex]=useState(0);const [hidden,setHidden]=useState(false);
  const [anchor,setAnchor]=useState<{x:number;y:number}|null>(null);const [cursor,setCursor]=useState<{x:number;y:number;click:boolean}|null>(null);
  const movement=useRef({from:0,to:0,at:0});const shownSeparation=useRef(0);
- const container=useRef<HTMLDivElement>(null);const stage=useRef<Stage|null>(null);const clock=useRef(0);const lastInput=useRef(0);const autoAllowed=useRef(!reduced.current);const tourStart=useRef(0);
+ const container=useRef<HTMLDivElement>(null);const stage=useRef<Stage|null>(null);const clock=useRef(0);const tourStart=useRef(0);
  const selected=controls.selected?parts.find(p=>p.id===controls.selected):null;
- function stopTour(){lastInput.current=performance.now();if(tourRef.current){movement.current={from:shownSeparation.current,to:shownSeparation.current,at:0};tourRef.current=false;setTour(false);setCursor(null)}}
+ function stopTour(){if(tourRef.current){movement.current={from:shownSeparation.current,to:shownSeparation.current,at:0};tourRef.current=false;setTour(false);setCursor(null)}}
  function change(patch:Partial<Controls>){stopTour();if(patch.separation!==undefined)movement.current={from:shownSeparation.current,to:patch.separation,at:performance.now()};const next={...controlsRef.current,...patch};controlsRef.current=next;setControls(next)}
  function select(id:Part){const selected=controlsRef.current.selected===id?null:id;change({selected,separation:selected?1:0,isolated:false})}
- function toggleTour(){const next=!tourRef.current;autoAllowed.current=next;tourRef.current=next;setTour(next);if(next){tourStart.current=clock.current;playingRef.current=true;setPlaying(true)}else setCursor(null)}
+ function toggleTour(){const next=!tourRef.current;tourRef.current=next;setTour(next);if(next){tourStart.current=clock.current;playingRef.current=true;setPlaying(true)}else setCursor(null)}
  function reset(){change({...defaults});stage.current?.resetCamera()}
- function togglePlaying(){stopTour();const next=!playingRef.current;playingRef.current=next;setPlaying(next);if(!next)autoAllowed.current=false}
+ function togglePlaying(){stopTour();const next=!playingRef.current;playingRef.current=next;setPlaying(next)}
  function liveControls(){const m=movement.current;const x=reduced.current?1:Math.min(1,(performance.now()-m.at)/650);const ease=x*x*(3-2*x);return {...controlsRef.current,separation:m.from+(m.to-m.from)*ease}}
  function placeCursor(time:number){
   const state=tourAt(time);const next=timeline.beats[(state.index+1)%timeline.beats.length];
@@ -65,7 +65,6 @@ export function Flora(){
   const frame=(now:number)=>{
    raf=requestAnimationFrame(frame);const dt=previous?Math.min((now-previous)/1000,.1):0;previous=now;
    if(document.hidden||!visible||capture||contextLost)return;
-   if(!tourRef.current&&autoAllowed.current&&now-lastInput.current>25000){tourRef.current=true;setTour(true);tourStart.current=clock.current}
    if(playingRef.current)clock.current+=dt;
    if(tourRef.current)controlsRef.current=tourAt(clock.current-tourStart.current).controls;
    const live=tourRef.current?controlsRef.current:liveControls();shownSeparation.current=live.separation;const s=sampleAt(clock.current,live.intensity);sampleRef.current=s;
