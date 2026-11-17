@@ -33,6 +33,7 @@ export function App(){
       <header className="app-header">
         <a className="brand" href="/" aria-label="Absurd Devices Anatomies home"><span className="brand-mark" aria-hidden="true">✲</span><span>Absurd Devices Anatomies</span></a>
         <div className="header-actions">
+          <a className="flora-study-link" href="/orbit/">3D devices <ArrowUpRight aria-hidden="true"/></a>
           <a className="flora-study-link" href="/flora/">Explore Flora in 3D <ArrowUpRight aria-hidden="true"/></a>
           <ButtonGroup size="sm" className="theme-control accent-segments" aria-label="Color theme" disallowEmptySelection selectedKeys={new Set([theme])} onSelectionChange={keys=>setTheme(keys.has('dark')?'dark':'light')}>
             <ButtonGroupItem id="light" aria-label="Light" iconLeading={Sun}/>

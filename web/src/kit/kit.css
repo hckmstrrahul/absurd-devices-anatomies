@@ -1,0 +1,26 @@
+/* 3D device pages: additions to the shared app layout. */
+.page-heading{justify-content:flex-start}.page-heading h1{margin:0}
+.orbit-toolbar-end{display:flex;align-items:center;gap:8px}
+.orbit-stage{position:relative;height:clamp(340px,58vh,600px);overflow:hidden;cursor:grab;touch-action:none}
+.orbit-stage:active{cursor:grabbing}
+.orbit-stage canvas{display:block;width:100%;height:100%;outline:none}
+.orbit-loading,.orbit-error{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:12px;color:var(--color-text-tertiary);font-size:13px;line-height:20px;pointer-events:none}
+.orbit-error img{width:min(60%,320px);height:auto;border-radius:12px}.orbit-error p{margin:0}
+.orbit-callout{position:absolute;transform:translate(14px,-130%);padding:3px 9px;border-radius:999px;background:var(--color-bg-primary);color:var(--color-text-secondary);border:1px solid var(--color-border-secondary);box-shadow:var(--shadow-xs);font-size:12px;line-height:18px;font-weight:500;white-space:nowrap;pointer-events:none}
+.orbit-callout::before{content:"";position:absolute;left:-13px;bottom:-9px;width:7px;height:7px;border-radius:50%;background:var(--color-bg-brand-solid);box-shadow:0 0 0 2px var(--color-bg-primary)}
+.orbit-controls{min-height:68px;align-items:center}
+.orbit-hint{font-size:12px;line-height:18px;color:var(--color-text-tertiary)}
+.orbit-readouts{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding:16px 18px}
+.orbit-readouts>div{display:flex;flex-direction:column;gap:2px;min-width:0}.orbit-readouts>div.wide{grid-column:1/-1;gap:7px}
+.orbit-readouts span{font-size:12px;line-height:18px;color:var(--color-text-tertiary)}
+.orbit-readouts output{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.4px;font-variant-numeric:tabular-nums;color:var(--color-text-primary)}
+.orbit-meter{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}.orbit-meter i{height:8px;border-radius:2px;background:var(--color-bg-quaternary)}.orbit-meter i.on{background:var(--color-text-primary)}
+@media(max-width:780px){.orbit-stage{height:clamp(320px,52vh,460px)}}
+@media(max-width:520px){.model-toolbar{flex-wrap:wrap}.orbit-toolbar-end{width:100%;justify-content:space-between}.orbit-controls{min-height:0}}
+.device-nav{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;line-height:20px}
+.device-nav a{color:var(--color-text-tertiary);text-decoration:none;font-weight:500}.device-nav a:hover{color:var(--color-text-primary)}
+.device-nav a[aria-current=page]{color:var(--color-text-primary);font-weight:600}
+.orbit-controls{flex-wrap:wrap}
+@media(max-width:780px){.device-nav{order:3;width:100%}}
+/* The device menu sits on its own row on narrow screens, and scrolls sideways if it still does not fit. */
+@media(max-width:780px){.header-actions{flex-wrap:wrap;flex-shrink:1;justify-content:flex-end;min-width:0}.device-nav{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding-block:4px}.device-nav::-webkit-scrollbar{display:none}}
